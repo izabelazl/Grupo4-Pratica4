@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 	double cpu_time_used;
 
 	FILE* infile, * outfile;
-	char r, g, b, m_1, m_2, m_3, filetype[256], * ptri, * ptro, * img;
+	char r, g, b, filetype[256], * ptri, * ptro, * img;
 	int i;
 	int width, height, depth, pixels;
 	short n_1, n_2, n_3;
@@ -46,9 +46,7 @@ int main(int argc, char* argv[]) {
 		r = *ptri++;
 		g = *ptri++;
 		b = *ptri++;
-		/*printf("r_in = %d ", r);
-		printf("g_in = %d ", g);
-		printf("b_in = %d ", b);*/
+
 		__asm {
 			movzx ax, r
 			movzx bx, g
@@ -76,14 +74,11 @@ int main(int argc, char* argv[]) {
 			n_3 = 0b11111111;
 			n_3 = n_3;
 		}
-	
 
 		*ptro++ = n_1;
 		*ptro++ = n_2;
 		*ptro++ = n_3;
-		/*printf("r_out = %c ", m_1);
-		printf("g_out = %c ", m_2);
-		printf("b_out = %c \n", m_3);*/
+
 	}
 	end = clock();
 
